@@ -1,5 +1,7 @@
 <img src="https://img.shields.io/github/release/LuigiTheHunter/GetMiTokens.svg?logo=github" />   <img src="https://img.shields.io/f-droid/v/eu.roggstar.luigithehunter.getmitokens.svg" />   [![GitHub license](https://img.shields.io/github/license/LuigiTheHunter/GetMiTokens.svg)](https://github.com/LuigiTheHunter/GetMiTokens/blob/master/LICENSE)   [![GitHub issues](https://img.shields.io/github/issues/LuigiTheHunter/GetMiTokens.svg)](https://GitHub.com/LuigiTheHunter/GetMiTokens/issues/)<br>
 [![Tracker Badge](https://img.shields.io/badge/Tracker-0-green.svg)](https://shields.io/)   [![Permissions Badge](https://img.shields.io/badge/Permissions-0-green.svg)](https://shields.io/)   [![ADS Badge](https://img.shields.io/badge/ADs-0-green.svg)](https://shields.io/)
+<br>
+[![Donate Badge](https://img.shields.io/badge/Donate-Me-green.svg)](https://paypal.me/proggenbuck)
 
 # GetMiToken [ROOT]
 
