@@ -8,4 +8,4 @@
 With this app you can extract the tokens from the Yeelight app.
 
 Please add bugs or feature requests as issues.<br><br>
-<a href='https://f-droid.org/en/packages/eu.roggstar.luigithehunter.getmitokens' target="_blank"><img alt='Get it on F-Droid' src='https://f-droid.org/badge/get-it-on.png' height="75"/></a><a href='https://play.google.com/store/apps/details?id=eu.roggstar.luigithehunter.getmitokens&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="75"/></a>
+<a href='https://f-droid.org/en/packages/eu.roggstar.getmitokens' target="_blank"><img alt='Get it on F-Droid' src='https://f-droid.org/badge/get-it-on.png' height="75"/></a><a href='https://play.google.com/store/apps/details?id=eu.roggstar.getmitokens&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="75"/></a>
