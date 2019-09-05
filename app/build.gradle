@@ -6,8 +6,8 @@ android {
         applicationId "eu.roggstar.getmitokens"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "Mimimi"
+        versionCode 2
+        versionName "Yeelit"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

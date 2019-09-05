@@ -4,9 +4,13 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -45,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         //setTitle
         setTitle("Get Mi Tokens");
-
-        execu("mkdir "+path);
-        execu("cp /data/data/com.yeelight.cherry/shared_prefs/miot.xml "+path+"/");
 
         mAdapter = new SimpleAdapter(
                 this,
@@ -157,22 +158,26 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Token copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
-    void execu (String com){
-        try {
-            Process su = Runtime.getRuntime().exec("su");
-            DataOutputStream outputStream = new DataOutputStream(su.getOutputStream());
-
-            outputStream.writeBytes( com+"\n");
-            outputStream.flush();
-
-            outputStream.writeBytes("exit\n");
-            outputStream.flush();
-
-            //su.waitFor();
-        } catch (IOException e) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Toast.makeText(MainActivity.this, "Successful!", Toast.LENGTH_SHORT).show();
+    //My Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.developer:
+                startActivity(new Intent(MainActivity.this, VersionActivity.class));
+                return true;
+            case R.id.aboutme:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.phrogg.de"));
+                startActivity(browserIntent);
+                return true;
+        }
+        return false;
+    }
+
 }
