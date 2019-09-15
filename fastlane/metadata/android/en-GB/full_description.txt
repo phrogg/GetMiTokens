@@ -1,0 +1,3 @@
+This is a Data Privacy respecting app without any trackers, ads or unneccessary permissions:https://reports.exodus-privacy.eu.org/en/reports/search/eu.roggstar.getmitokens/
+
+This is just a very small App, to extract and share your tokens from the yeelight app. You need the Yeelight app installed and the lights added there. To get the tokens via this app.
