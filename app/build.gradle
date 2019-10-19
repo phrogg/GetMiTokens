@@ -6,8 +6,8 @@ android {
         applicationId "eu.roggstar.getmitokens"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 3
-        versionName "Yeelit"
+        versionCode 4
+        versionName "Shakal"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
