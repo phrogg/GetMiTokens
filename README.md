@@ -3,7 +3,7 @@
 <br>
 [![Donate Badge](https://img.shields.io/badge/Donate-Me-green.svg)](https://paypal.me/proggenbuck)
 
-# GetMiToken [ROOT]
+# GetMiTokens [ROOT]
 
 With this app you can extract the tokens from the Yeelight app.
 

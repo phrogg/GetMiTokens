@@ -1,1 +1,1 @@
-An App to get the Tokens from the Yeelight app.
+Get the Tokens from the Yeelight app.
