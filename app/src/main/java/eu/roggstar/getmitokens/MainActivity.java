@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.Math.abs;
 import static java.lang.System.exit;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private SimpleAdapter mAdapter;
     private final ArrayList<HashMap<String,String>> tokens = new ArrayList<>();
     private ListView lvTokens;
-    final static String path = "/sdcard/Android/data/eu.roggstar.getmitokens";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,12 +112,8 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    public static String getStringFromFile () throws Exception {
-        File fl = new File(path+"/miot.xml");
-        FileInputStream fin = new FileInputStream(fl);
-        String ret = convertStreamToString(fin);
-        fin.close();
-        return ret;
+    public String getStringFromFile () throws Exception {
+        return execu("cat /data/data/com.yeelight.cherry/shared_prefs/miot.xml");
     }
 
     private void xml(String xml) {
@@ -139,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject reader = new JSONObject(xmls[i]);
 
                 HashMap<String,String> temp = new HashMap<>();
-                temp.put("device", reader.getString("name"));
+                temp.put("device", reader.get("localip")+" ⇄ "+reader.get("mac")+"\n ⇨ "+reader.getString("name"));
                 temp.put("token", reader.getString("token"));
                 tokens.add(temp);
             }
@@ -178,6 +174,38 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    private String execu (String com){
+        try {
+            Process su = Runtime.getRuntime().exec("su");
+            DataOutputStream outputStream = new DataOutputStream(su.getOutputStream());
+
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(su.getInputStream()));
+
+            outputStream.writeBytes( com+"\n");
+            outputStream.flush();
+
+            outputStream.writeBytes("exit\n");
+            outputStream.flush();
+
+            int read;
+            char[] buffer = new char[4096];
+            StringBuffer output = new StringBuffer();
+            while ((read = reader.read(buffer)) > 0) {
+                output.append(buffer, 0, read);
+            }
+            reader.close();
+
+            su.waitFor();
+
+            return output.toString();
+
+        } catch (IOException | InterruptedException e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            return null;
+        }
     }
 
 }
