@@ -17,8 +17,8 @@ public class VersionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_version);
 
-
         //setTitle("by RoggStar© All rights reserved!");
+
 
         final TextView tv_version =  findViewById(R.id.tv_version);
         final ImageView img_rogg = findViewById(R.id.img_rogg);
