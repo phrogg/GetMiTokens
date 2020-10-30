@@ -1,5 +1,6 @@
 package eu.roggstar.getmitokens;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //setTitle
         setTitle("Get Mi Tokens");
 
         mAdapter = new SimpleAdapter(
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public static String convertStreamToString(InputStream is) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
-        String line = null;
+        String line;
         while ((line = reader.readLine()) != null) {
             sb.append(line).append("\n");
         }
@@ -131,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
             String[] xmls;
             xmls = xml.split("\n");
 
-            for(int i = 0;i<xmls.length;i++){
-                JSONObject reader = new JSONObject(xmls[i]);
+            for (String s : xmls) {
+                JSONObject reader = new JSONObject(s);
 
-                HashMap<String,String> temp = new HashMap<>();
-                temp.put("device", reader.get("localip")+" ⇄ "+reader.get("mac")+"\n ⇨ "+reader.getString("name"));
+                HashMap<String, String> temp = new HashMap<>();
+                temp.put("device", reader.get("localip") + " ⇄ " + reader.get("mac") + "\n ⇨ " + reader.getString("name"));
                 temp.put("token", reader.getString("token"));
                 tokens.add(temp);
             }
@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         } catch(Exception e) {
             Log.d("Philz", e.toString());
         }
+
         lvTokens.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
@@ -154,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Token copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
-    //My Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -192,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
 
             int read;
             char[] buffer = new char[4096];
-            StringBuffer output = new StringBuffer();
+            StringBuilder output = new StringBuilder();
             while ((read = reader.read(buffer)) > 0) {
                 output.append(buffer, 0, read);
             }

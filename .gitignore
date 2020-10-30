@@ -36,7 +36,6 @@ captures/
 *.iml
 .idea
 .navigation
-captures/
 output.json 
 
 # Keystore files
